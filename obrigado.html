@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado! — Atlas da Fé</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="theme-color" content="#0a0a0a">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5.1.0/index.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/plus-jakarta-sans@8.0.2/index.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        body: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: { 900: '#050505', 800: '#0a0a0a', 700: '#111111', 600: '#1a1a1a', 500: '#222222' },
+                        gold: { 100: '#FFF8E7', 200: '#F5E6C8', 300: '#E8D5A3', 400: '#D4B96A', 500: '#C9A84C', 600: '#B8943F', 700: '#8B6F2E' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #C9A84C 0%, #F5E6C8 50%, #D4B96A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #C9A84C 0%, #D4B96A 50%, #B8943F 100%);
+            color: #050505;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+        .btn-gold:hover::before { left: 100%; }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(201, 168, 76, 0.3);
+        }
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(201, 168, 76, 0); }
+        }
+        .btn-pulse { animation: pulse-gold 2.5s infinite; }
+        .glass-strong {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-in { animation: fadeUp 0.8s ease forwards; }
+        .animate-in-delay1 { animation: fadeUp 0.8s ease 0.2s forwards; opacity: 0; }
+        .animate-in-delay2 { animation: fadeUp 0.8s ease 0.4s forwards; opacity: 0; }
+        .animate-in-delay3 { animation: fadeUp 0.8s ease 0.6s forwards; opacity: 0; }
+        @keyframes confetti1 { 0% { transform: translateY(0) rotate(0); opacity:1; } 100% { transform: translateY(-80px) rotate(360deg); opacity:0; } }
+        @keyframes confetti2 { 0% { transform: translateY(0) rotate(0); opacity:1; } 100% { transform: translateY(-60px) rotate(-270deg); opacity:0; } }
+        .confetti-1 { animation: confetti1 2s ease-out infinite; }
+        .confetti-2 { animation: confetti2 2.5s ease-out 0.3s infinite; }
+        .line-gold {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-2xl mx-auto px-6 py-16 text-center">
+
+        <!-- CONFETTI ICON -->
+        <div class="relative inline-block mb-8 animate-in">
+            <div class="w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center mx-auto border border-green-500/20">
+                <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div class="absolute -top-2 -left-3 w-3 h-3 bg-gold-400 rounded-full confetti-1"></div>
+            <div class="absolute -top-1 -right-4 w-2 h-2 bg-green-400 rounded-full confetti-2"></div>
+            <div class="absolute top-0 right-2 w-2 h-2 bg-gold-300 rounded-sm confetti-1" style="animation-delay: 0.5s;"></div>
+        </div>
+
+        <!-- HEADING -->
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-white tracking-tight mb-4 leading-tight animate-in">
+            Parabéns pela <span class="text-gradient">melhor decisão!</span>
+        </h1>
+
+        <p class="text-gray-400 text-lg max-w-lg mx-auto mb-4 leading-relaxed animate-in-delay1">
+            Seu <strong class="text-white">Manual Prático da Bíblia</strong> já está disponível no seu e-mail. Verifique sua caixa de entrada (e o spam, por precaução).
+        </p>
+
+        <p class="text-gray-500 text-sm mb-10 animate-in-delay1">
+            Você agora faz parte de uma comunidade de +12.500 leitores transformados.
+        </p>
+
+        <!-- BÔNUS CARD -->
+        <div class="glass-strong rounded-3xl p-8 md:p-10 text-center mb-10 animate-in-delay2 relative overflow-hidden">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs font-bold px-6 py-1.5 rounded-b-xl uppercase tracking-wider">
+                Seu presente exclusivo
+            </div>
+
+            <div class="mt-4 mb-6">
+                <div class="w-16 h-16 rounded-2xl bg-green-400/10 flex items-center justify-center mx-auto mb-5">
+                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
+                    </svg>
+                </div>
+                <h2 class="font-display text-2xl md:text-3xl text-white mb-3">
+                    Devocional Premium — <span class="text-gradient">21 Dias Para Caminhar Com Deus</span>
+                </h2>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-md mx-auto mb-6">
+                    Uma jornada transformadora de 21 dias com oração direcionada, meditação profunda nas Escrituras, guia prático de jejum, versículos para meditação e exercícios de aplicação diária. <strong class="text-white">35 páginas de conteúdo exclusivo.</strong>
+                </p>
+            </div>
+
+            <a href="https://drive.google.com/file/d/15icoDEIBjixdM5wF7BwbL8uSBWVXAI-9/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-gold btn-pulse px-10 py-4 rounded-full text-base tracking-wider uppercase inline-flex items-center gap-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                BAIXAR DEVOCIONAL GRÁTIS
+            </a>
+
+            <p class="text-gray-600 text-xs mt-4">PDF gratuito · Acesso imediato · Seu para sempre</p>
+        </div>
+
+        <!-- O QUE FAZER AGORA -->
+        <div class="text-left glass-strong rounded-2xl p-6 md:p-8 mb-10 animate-in-delay3">
+            <p class="text-gold-400 text-xs tracking-[0.2em] uppercase mb-5 text-center">Seus próximos passos</p>
+            <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-gold-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="text-gold-400 text-sm font-bold">1</span>
+                    </div>
+                    <div>
+                        <p class="text-white text-sm font-semibold">Confira seu e-mail</p>
+                        <p class="text-gray-500 text-xs">O acesso ao Manual Prático da Bíblia foi enviado para o e-mail que você usou na compra.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-gold-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="text-gold-400 text-sm font-bold">2</span>
+                    </div>
+                    <div>
+                        <p class="text-white text-sm font-semibold">Baixe o Devocional acima</p>
+                        <p class="text-gray-500 text-xs">Esse é seu bônus exclusivo. Clique no botão dourado para baixar o PDF.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-gold-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="text-gold-400 text-sm font-bold">3</span>
+                    </div>
+                    <div>
+                        <p class="text-white text-sm font-semibold">Siga a gente nas redes</p>
+                        <p class="text-gray-500 text-xs">Conteúdo bíblico diário pra fortalecer sua caminhada.</p>
+                        <div class="flex items-center gap-4 mt-2">
+                            <a href="https://www.instagram.com/atlasdafe" target="_blank" rel="noopener noreferrer" class="text-gold-400 hover:text-gold-300 transition-colors text-xs flex items-center gap-1.5">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                                @atlasdafe
+                            </a>
+                            <a href="https://www.tiktok.com/@atlasdafe" target="_blank" rel="noopener noreferrer" class="text-gold-400 hover:text-gold-300 transition-colors text-xs flex items-center gap-1.5">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48v-7.1a8.16 8.16 0 005.58 2.17V11.3a4.85 4.85 0 01-3-.61v6.62"/></svg>
+                                @atlasdafe
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="line-gold w-24 mx-auto mb-6"></div>
+        <a href="https://atlasdafe.com.br" class="flex items-center gap-2 justify-center group mb-4">
+            <div class="w-7 h-7 border border-gold-500/30 rounded-sm flex items-center justify-center">
+                <svg class="w-3.5 h-3.5 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M2 12h20"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+            </div>
+            <span class="font-display text-lg tracking-wide text-white">Atlas <span class="text-gold-400">da Fé</span></span>
+        </a>
+        <p class="text-xs text-gray-600">© 2026 Atlas da Fé · contato@atlasdafe.com.br</p>
+    </div>
+</body>
+</html>

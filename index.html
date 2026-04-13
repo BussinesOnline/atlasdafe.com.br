@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Prático da Bíblia — Entenda a Palavra de Deus com Clareza | Atlas da Fé</title>
+    <meta name="description" content="Você lê a Bíblia mas sente que não entende? O Manual Prático da Bíblia te dá um método simples para estudar com clareza. Mais de 12.500 leitores transformados. Acesso imediato por R$29,90.">
+    <meta property="og:title" content="Manual Prático da Bíblia — Atlas da Fé">
+    <meta property="og:description" content="O guia completo para quem quer entender, estudar e viver a Palavra de Deus. Método prático e acessível. R$29,90 com garantia de 7 dias.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://atlasdafe.com.br">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="msapplication-TileColor" content="#0a0a0a">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5.1.0/index.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/plus-jakarta-sans@8.0.2/index.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        body: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#050505',
+                            800: '#0a0a0a',
+                            700: '#111111',
+                            600: '#1a1a1a',
+                            500: '#222222',
+                        },
+                        gold: {
+                            100: '#FFF8E7',
+                            200: '#F5E6C8',
+                            300: '#E8D5A3',
+                            400: '#D4B96A',
+                            500: '#C9A84C',
+                            600: '#B8943F',
+                            700: '#8B6F2E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .glass-strong {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #C9A84C 0%, #F5E6C8 50%, #D4B96A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #C9A84C 0%, #D4B96A 50%, #B8943F 100%);
+            color: #050505;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+        .btn-gold:hover::before { left: 100%; }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(201, 168, 76, 0.3);
+        }
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(201, 168, 76, 0); }
+        }
+        .btn-pulse { animation: pulse-gold 2.5s infinite; }
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.6) 50%, #050505 100%);
+        }
+        .hero-overlay-top {
+            background: linear-gradient(180deg, #050505 0%, transparent 40%);
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .bento-card {
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(201, 168, 76, 0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .bento-card:hover .bento-icon {
+            color: #C9A84C;
+            transform: scale(1.1);
+        }
+        .testimonial-card {
+            transition: all 0.4s ease;
+        }
+        .testimonial-card:hover {
+            border-color: rgba(201, 168, 76, 0.15);
+        }
+        .line-gold {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+        }
+        .scroll-indicator {
+            animation: scrollBounce 2s ease-in-out infinite;
+        }
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(8px); opacity: 0.5; }
+        }
+        .number-counter {
+            font-variant-numeric: tabular-nums;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #C9A84C; }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #C9A84C;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .mobile-menu.open { transform: translateX(0); }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        /* POP-UP CAPTURA DE LEADS */
+        .popup-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 100;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+            padding: 16px;
+        }
+        .popup-overlay.active { opacity: 1; pointer-events: all; }
+        .popup-box {
+            background: linear-gradient(135deg, #111 0%, #0a0a0a 100%);
+            border: 1px solid rgba(201,168,76,0.2); border-radius: 20px;
+            max-width: 440px; width: 100%; padding: 40px 32px; position: relative;
+            transform: translateY(30px); transition: transform 0.4s ease;
+        }
+        .popup-overlay.active .popup-box { transform: translateY(0); }
+        .popup-close { position: absolute; top: 16px; right: 16px; color: #666; cursor: pointer; background: none; border: none; font-size: 20px; }
+        .popup-close:hover { color: #fff; }
+        .popup-input {
+            width: 100%; padding: 14px 18px; border-radius: 12px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; font-size: 15px; outline: none; transition: border 0.3s;
+        }
+        .popup-input:focus { border-color: rgba(201,168,76,0.5); }
+        .popup-input::placeholder { color: #555; }
+        /* COUNTDOWN TIMER */
+        .countdown-bar {
+            background: linear-gradient(90deg, rgba(201,168,76,0.15) 0%, rgba(201,168,76,0.05) 100%);
+            border: 1px solid rgba(201,168,76,0.2);
+        }
+        .countdown-num {
+            font-variant-numeric: tabular-nums;
+            font-family: 'Playfair Display', serif;
+        }
+        /* FLOATING CTA MOBILE */
+        .floating-cta {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 45;
+            background: linear-gradient(180deg, transparent 0%, #050505 30%);
+            padding: 20px 16px 16px; display: none;
+        }
+        @media (max-width: 640px) { .floating-cta { display: block; } }
+        /* WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed; bottom: 90px; right: 20px; z-index: 44;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: #25D366; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+            transition: transform 0.3s; cursor: pointer;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        @media (max-width: 640px) { .whatsapp-float { bottom: 100px; } }
+        /* EXIT INTENT SHAKE */
+        @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+        .shake { animation: shake 0.4s ease; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="w-8 h-8 border border-gold-500/50 rounded-sm flex items-center justify-center group-hover:border-gold-500 transition-colors duration-300">
+                        <svg class="w-4 h-4 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <span class="font-display text-xl tracking-wide text-white">Atlas <span class="text-gold-400">da Fé</span></span>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-10">
+                    <a href="#diferenciais" class="nav-link text-sm text-gray-400 hover:text-white transition-colors tracking-wide uppercase">Diferenciais</a>
+                    <a href="#sobre" class="nav-link text-sm text-gray-400 hover:text-white transition-colors tracking-wide uppercase">Sobre</a>
+                    <a href="#depoimentos" class="nav-link text-sm text-gray-400 hover:text-white transition-colors tracking-wide uppercase">Depoimentos</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <a href="https://pay.hotmart.com/Q103404071A" target="_blank" rel="noopener noreferrer" class="btn-gold px-6 py-2.5 rounded-full text-sm tracking-wide uppercase hidden sm:inline-block">
+                        Quero Meu Manual
+                    </a>
+                    <button id="menuToggle" class="md:hidden text-white p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path d="M3.75 9h16.5m-16.5 6.75h16.5"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-full h-full bg-dark-800/98 backdrop-blur-xl z-[60] flex flex-col items-center justify-center gap-8">
+        <button id="menuClose" class="absolute top-6 right-6 text-white p-2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+        <a href="#diferenciais" class="mobile-link text-2xl font-display text-white hover:text-gold-400 transition-colors">Diferenciais</a>
+        <a href="#sobre" class="mobile-link text-2xl font-display text-white hover:text-gold-400 transition-colors">Sobre</a>
+        <a href="#depoimentos" class="mobile-link text-2xl font-display text-white hover:text-gold-400 transition-colors">Depoimentos</a>
+        <a href="https://pay.hotmart.com/Q103404071A" target="_blank" rel="noopener noreferrer" class="btn-gold px-8 py-3 rounded-full text-lg tracking-wide uppercase mt-4">Quero Meu Manual</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <!-- TROQUE pelo caminho da sua imagem real, ex: src="images/hero.png" -->
+            <div class="w-full h-full bg-gradient-to-br from-dark-700 via-dark-800 to-dark-900 scale-110 flex items-center justify-center" id="heroBg">
+                <svg class="w-32 h-32 text-gold-400/10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+            </div>
+            <div class="hero-overlay absolute inset-0"></div>
+            <div class="hero-overlay-top absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
+            <div class="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 opacity-0" id="heroBadge">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                <span class="text-xs tracking-[0.2em] uppercase text-gold-300">🔥 +847 pessoas acessaram esta página hoje</span>
+            </div>
+
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-8" id="heroTitle">
+                <span class="block overflow-hidden"><span class="inline-block translate-y-full text-white">Você lê a Bíblia mas</span></span>
+                <span class="block overflow-hidden"><span class="inline-block translate-y-full text-gradient mt-2">sente que não entende?</span></span>
+                <span class="block overflow-hidden"><span class="inline-block translate-y-full text-white mt-2">Este manual vai mudar isso.</span></span>
+            </h1>
+
+            <p class="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed opacity-0" id="heroSub">
+                O método simples e prático que já ajudou <strong class="text-white">+12.500 cristãos</strong> a estudar a Bíblia com clareza, profundidade e confiança — mesmo que você nunca tenha estudado antes.
+            </p>
+
+            <!-- COUNTDOWN TIMER -->
+            <div class="countdown-bar rounded-2xl px-6 py-4 max-w-lg mx-auto mb-8 opacity-0" id="heroCountdown" style="opacity:0">
+                <p class="text-xs text-gold-400 uppercase tracking-[0.2em] text-center mb-3">⚡ Oferta promocional encerra em:</p>
+                <div class="flex items-center justify-center gap-4">
+                    <div class="text-center"><span class="countdown-num text-2xl text-white" id="countHours">05</span><span class="block text-[10px] text-gray-500 mt-1">HORAS</span></div>
+                    <span class="text-gold-400 text-xl">:</span>
+                    <div class="text-center"><span class="countdown-num text-2xl text-white" id="countMinutes">47</span><span class="block text-[10px] text-gray-500 mt-1">MIN</span></div>
+                    <span class="text-gold-400 text-xl">:</span>
+                    <div class="text-center"><span class="countdown-num text-2xl text-white" id="countSeconds">33</span><span class="block text-[10px] text-gray-500 mt-1">SEG</span></div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0" id="heroCTA">
+                <a href="https://pay.hotmart.com/Q103404071A" target="_blank" rel="noopener noreferrer" class="btn-gold btn-pulse px-10 py-4 rounded-full text-base tracking-wider uppercase">
+                    QUERO MEU MANUAL — R$ 29,90
+                </a>
+                <a href="#sobre" class="text-sm text-gray-400 hover:text-white transition-colors tracking-wide flex items-center gap-2 group">
+                    Ver o que está incluso
+                    <svg class="w-4 h-4 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </a>
+            </div>
+
+            <div class="flex items-center justify-center gap-6 mt-6 opacity-0" id="heroTrust" style="opacity:0">
+                <div class="flex items-center gap-1.5 text-xs text-gray-500">
+                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                    Compra segura
+                </div>
+                <div class="flex items-center gap-1.5 text-xs text-gray-500">
+                    <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                    Acesso imediato
+                </div>
+                <div class="flex items-center gap-1.5 text-xs text-gray-500">
+                    <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    7 dias de garantia
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 scroll-indicator opacity-0" id="scrollInd">
+            <div class="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5">
+                <div class="w-1 h-2 bg-gold-400 rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTHORITY MARQUEE -->
+    <section class="py-8 border-y border-white/5 overflow-hidden relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-dark-900 via-transparent to-dark-900 z-10 pointer-events-none"></div>
+        <div class="marquee-track">
+            <div class="flex items-center gap-12 px-6">
+                <span class="text-sm text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap flex items-center gap-3">
+                    <svg class="w-5 h-5 text-gold-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    +182K likes no Instagram
+                </span>
+                <span class="text-white/10">◆</span>
+                <span class="text-sm text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap flex items-center gap-3">
+                    <svg class="w-5 h-5 text-gold-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    +12.500 leitores transformados
+                </span>
+                <span class="text-white/10">◆</span>
+                <span class="text-sm text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap flex items-center gap-3">
+                    <svg class="w-5 h-5 text-gold-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+                    Garantia de 7 dias com reembolso total
+                </span>
+                <span class="text-white/10">◆</span>
+                <span class="text-sm text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap flex items-center gap-3">
+                    <svg class="w-5 h-5 text-gold-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    Ferramentas práticas e métodos eficazes
+                </span>
+                <span class="text-white/10">◆</span>
+                <span class="text-sm text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap flex items-center gap-3">
+                    <svg class="w-5 h-5 text-gold-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+                    Guia completo para estudar a Bíblia
+                </span>
+            </div>
+            <div class="flex items-center gap-12 px-6">
+                <span class="text-sm text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap flex items-center gap-3">
+                    <svg class="w-5 h-5 text-gold-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    +182K likes no Instagram
+                </span>
+                <span class="text-white/10">◆</span>
+                <span class="text-sm text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap flex items-center gap-3">
+                    <svg class="w-5 h-5 text-gold-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    +12.500 leitores transformados
+                </span>
+                <span class="text-white/10">◆</span>
+                <span class="text-sm text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap flex items-center gap-3">
+                    <svg class="w-5 h-5 text-gold-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+                    Garantia de 7 dias com reembolso total
+                </span>
+                <span class="text-white/10">◆</span>
+                <span class="text-sm text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap flex items-center gap-3">
+                    <svg class="w-5 h-5 text-gold-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    Ferramentas práticas e métodos eficazes
+                </span>
+                <span class="text-white/10">◆</span>
+                <span class="text-sm text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap flex items-center gap-3">
+                    <svg class="w-5 h-5 text-gold-400/50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+                    Guia completo para estudar a Bíblia
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS - BENTO GRID -->
+    <section id="diferenciais" class="py-24 md:py-32 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="text-gold-400 text-xs tracking-[0.3em] uppercase block mb-4 reveal-text">Por que este manual é diferente</span>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-white tracking-tight reveal-text">Um guia feito para quem quer <br class="hidden md:block"><span class="text-gradient">viver a Palavra de verdade</span></h2>
+                <div class="line-gold mx-auto mt-8 w-24"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Card 1 - Large -->
+                <div class="bento-card glass-strong rounded-2xl p-8 md:col-span-2 md:row-span-2 flex flex-col justify-between min-h-[380px] bento-reveal">
+                    <div>
+                        <div class="bento-icon w-14 h-14 rounded-xl bg-gold-400/10 flex items-center justify-center mb-6 transition-all duration-500">
+                            <svg class="w-7 h-7 text-gold-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-display text-2xl md:text-3xl text-white mb-4 leading-tight">Ferramentas <span class="text-gradient">Práticas</span></h3>
+                        <p class="text-gray-400 leading-relaxed text-base">Métodos eficazes de estudo bíblico que qualquer pessoa pode aplicar. Sem teologia complicada — apenas orientação clara para você mergulhar nas Escrituras com confiança e profundidade.</p>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 rounded-full bg-gold-400/20 border-2 border-dark-800 flex items-center justify-center text-xs text-gold-400">A</div>
+                                <div class="w-8 h-8 rounded-full bg-gold-400/30 border-2 border-dark-800 flex items-center justify-center text-xs text-gold-400">M</div>
+                                <div class="w-8 h-8 rounded-full bg-gold-400/40 border-2 border-dark-800 flex items-center justify-center text-xs text-gold-400">R</div>
+                            </div>
+                            <span class="text-xs text-gray-500">Utilizado por milhares de estudantes da Bíblia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bento-card glass rounded-2xl p-6 md:col-span-1 bento-reveal">
+                    <div class="bento-icon w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5 transition-all duration-500">
+                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl text-white mb-3">Guia <span class="text-gradient">Completo</span></h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Do iniciante ao avançado. Entenda o contexto histórico, a estrutura dos livros e como aplicar cada ensinamento no seu dia a dia.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bento-card glass rounded-2xl p-6 md:col-span-1 bento-reveal">
+                    <div class="bento-icon w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5 transition-all duration-500">
+                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl text-white mb-3">Métodos <span class="text-gradient">Eficazes</span></h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Técnicas comprovadas de estudo bíblico para extrair o máximo das Sagradas Escrituras. Organização, anotação e memorização simplificados.</p>
+                </div>
+
+                <!-- Card 4 - Wide -->
+                <div class="bento-card glass rounded-2xl p-6 md:col-span-2 bento-reveal">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                        <div class="bento-icon w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center flex-shrink-0 transition-all duration-500">
+                            <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl text-white mb-2">Jornada <span class="text-gradient">Transformadora</span></h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Mais do que informação — inspiração. Cada seção foi desenhada para gerar mudança real na sua caminhada espiritual e no seu relacionamento com Deus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 - Stats -->
+                <div class="bento-card glass rounded-2xl p-6 bento-reveal">
+                    <div class="text-center">
+                        <div class="font-display text-5xl text-gradient mb-2 number-counter">+182K</div>
+                        <p class="text-gray-400 text-sm">Curtidas nas redes</p>
+                    </div>
+                </div>
+
+                <!-- Card 6 - Stats -->
+                <div class="bento-card glass rounded-2xl p-6 bento-reveal">
+                    <div class="text-center">
+                        <div class="font-display text-5xl text-gradient mb-2 number-counter">12.5K</div>
+                        <p class="text-gray-400 text-sm">Leitores ativos</p>
+                    </div>
+                </div>
+
+                <!-- Card 7 - Wide Bottom -->
+                <div class="bento-card glass rounded-2xl p-6 md:col-span-2 bento-reveal">
+                    <div class="flex items-center gap-5">
+                        <div class="bento-icon w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center flex-shrink-0 transition-all duration-500">
+                            <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl text-white mb-2">Feito para <span class="text-gradient">qualquer nível</span></h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Seja você um iniciante que nunca abriu a Bíblia ou alguém que já estuda há anos. O manual se adapta ao seu momento e ritmo de aprendizado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="bento-card glass rounded-2xl p-6 md:col-span-1 bento-reveal">
+                    <div class="bento-icon w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5 transition-all duration-500">
+                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl text-white mb-3">Suporte <span class="text-gradient">Premium</span></h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Garantia de 7 dias com reembolso total. Se não sentir a transformação prometida, devolvemos 100%.</p>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="bento-card glass rounded-2xl p-6 md:col-span-1 bento-reveal">
+                    <div class="bento-icon w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center mb-5 transition-all duration-500">
+                        <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl text-white mb-3">Fé <span class="text-gradient">Prática</span></h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Cansado do "mais do mesmo"? Aqui você encontra conteúdo que gera transformação real na sua caminhada espiritual.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE / PRODUTO -->
+    <section id="sobre" class="py-24 md:py-32 px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gold-400/[0.02] to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <!-- Image -->
+                <div class="relative order-2 lg:order-1 reveal-image">
+                    <div class="relative rounded-2xl overflow-hidden">
+                        <!-- TROQUE pelo caminho da sua imagem real, ex: src="images/produto.png" -->
+                        <div class="w-full aspect-[3/4] bg-gradient-to-br from-dark-600 via-dark-700 to-dark-800 rounded-2xl floating flex flex-col items-center justify-center p-8">
+                            <svg class="w-24 h-24 text-gold-400/20 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+                            <span class="font-display text-2xl text-gold-400/30">Manual Prático</span>
+                            <span class="font-display text-lg text-gold-400/20">da Bíblia</span>
+                        </div>
+                        <div class="absolute inset-0 rounded-2xl ring-1 ring-white/10"></div>
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 border border-gold-400/20 rounded-2xl -z-10"></div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-gold-400/5 rounded-2xl -z-10"></div>
+                </div>
+
+                <!-- Content -->
+                <div class="order-1 lg:order-2">
+                    <span class="text-gold-400 text-xs tracking-[0.3em] uppercase block mb-4 reveal-text">O que você vai encontrar</span>
+                    <h2 class="font-display text-4xl md:text-5xl text-white tracking-tight mb-6 leading-tight reveal-text">
+                        Um guia completo para <span class="text-gradient">compreender</span> as Sagradas Escrituras
+                    </h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8 reveal-text">
+                        Este manual foi desenvolvido para equipar você com ferramentas práticas, métodos eficazes e inspiração para uma jornada transformadora através das Sagradas Escrituras. Cada página foi pensada para transformar a maneira como você estuda e vive a Palavra de Deus.
+                    </p>
+
+                    <div class="space-y-5 mb-10">
+                        <div class="flex items-start gap-4 reveal-text">
+                            <div class="w-6 h-6 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-3.5 h-3.5 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Compreensão profunda da Bíblia</h4>
+                                <p class="text-gray-500 text-sm">Entenda o contexto histórico, cultural e teológico de cada livro das Escrituras.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 reveal-text">
+                            <div class="w-6 h-6 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-3.5 h-3.5 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Métodos práticos de estudo</h4>
+                                <p class="text-gray-500 text-sm">Técnicas organizadas para você estudar a Bíblia de forma eficaz e consistente.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 reveal-text">
+                            <div class="w-6 h-6 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-3.5 h-3.5 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Aplicação no dia a dia</h4>
+                                <p class="text-gray-500 text-sm">Transforme conhecimento em prática com desafios e exercícios ao final de cada seção.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 reveal-text">
+                            <div class="w-6 h-6 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-3.5 h-3.5 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Acesso vitalício + atualizações</h4>
+                                <p class="text-gray-500 text-sm">Pague uma vez, acesse para sempre, incluindo todas as futuras atualizações do manual.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://pay.hotmart.com/Q103404071A" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm tracking-wider uppercase">
+                        Quero meu manual agora
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="line-gold max-w-7xl mx-auto"></div>
+
+    <!-- PREVIEW DO PRODUTO - O QUE TEM DENTRO -->
+    <section class="py-24 md:py-32 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-gold-400 text-xs tracking-[0.3em] uppercase block mb-4 reveal-text">Espie o que tem por dentro</span>
+                <h2 class="font-display text-4xl md:text-5xl text-white tracking-tight reveal-text">Veja o que você vai <span class="text-gradient">receber agora</span></h2>
+                <div class="line-gold mx-auto mt-8 w-24"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <!-- PRODUTO PRINCIPAL -->
+                <div class="glass-strong rounded-2xl p-8 text-center bento-reveal border border-gold-400/10">
+                    <div class="w-16 h-16 rounded-2xl bg-gold-400/10 flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-gold-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+                    </div>
+                    <span class="inline-block mb-3 text-[10px] text-gold-400 bg-gold-400/10 px-3 py-1 rounded-full uppercase tracking-wider">Produto Principal</span>
+                    <h3 class="font-display text-xl text-white mb-3">Manual Prático da Bíblia</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Guia completo de estudo bíblico — do iniciante ao avançado. Contexto histórico, métodos de leitura, técnicas de memorização e aplicação prática no dia a dia.</p>
+                    <span class="inline-block text-xs text-gold-400 bg-gold-400/10 px-3 py-1 rounded-full">Valor: R$ 97</span>
+                </div>
+                <!-- BÔNUS: DEVOCIONAL 21 DIAS -->
+                <div class="glass-strong rounded-2xl p-8 text-center bento-reveal border border-green-400/15 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-green-500 text-white text-[10px] font-bold px-4 py-1 rounded-bl-xl uppercase tracking-wider">Grátis</div>
+                    <div class="w-16 h-16 rounded-2xl bg-green-400/10 flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+                    </div>
+                    <span class="inline-block mb-3 text-[10px] text-green-400 bg-green-400/10 px-3 py-1 rounded-full uppercase tracking-wider">🎁 Bônus Exclusivo</span>
+                    <h3 class="font-display text-xl text-white mb-3">Devocional Premium — 21 Dias Para Caminhar Com Deus</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Jornada completa de 21 dias com oração direcionada, meditação profunda, guia prático de jejum, versículos para meditação, sugestões de louvor e exercícios de aplicação diária. São 35 páginas de conteúdo transformador.</p>
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="text-xs text-gray-500 line-through">Valor: R$ 67</span>
+                        <span class="inline-block text-xs text-green-400 bg-green-400/10 px-3 py-1 rounded-full font-bold">GRÁTIS HOJE</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Detalhe do devocional -->
+            <div class="glass rounded-2xl p-6 md:p-8 max-w-3xl mx-auto mb-12 bento-reveal">
+                <p class="text-xs text-gold-400 uppercase tracking-[0.2em] text-center mb-5">O que tem no Devocional Premium:</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+                    <div class="text-sm"><span class="text-white font-semibold block">21 Dias</span><span class="text-gray-500 text-xs">de reflexão guiada</span></div>
+                    <div class="text-sm"><span class="text-white font-semibold block">3 Capítulos</span><span class="text-gray-500 text-xs">preparação, intimidade e missão</span></div>
+                    <div class="text-sm"><span class="text-white font-semibold block">4 Tipos de Jejum</span><span class="text-gray-500 text-xs">guia prático completo</span></div>
+                    <div class="text-sm"><span class="text-white font-semibold block">40+ Versículos</span><span class="text-gray-500 text-xs">organizados por necessidade</span></div>
+                    <div class="text-sm"><span class="text-white font-semibold block">Diário Espiritual</span><span class="text-gray-500 text-xs">perguntas para reflexão</span></div>
+                    <div class="text-sm"><span class="text-white font-semibold block">Plano Pós-Jornada</span><span class="text-gray-500 text-xs">90 dias de continuação</span></div>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-gray-500 text-sm mb-2 reveal-text">Manual + Devocional Premium por apenas:</p>
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="text-gray-500 line-through text-lg">R$ 164</span>
+                    <span class="font-display text-4xl text-gradient font-bold">R$ 29,90</span>
+                </div>
+                <a href="https://pay.hotmart.com/Q103404071A" target="_blank" rel="noopener noreferrer" class="btn-gold btn-pulse px-10 py-4 rounded-full text-base tracking-wider uppercase inline-block">
+                    SIM, QUERO TUDO ISSO AGORA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="line-gold max-w-7xl mx-auto"></div>
+
+    <!-- FAQ - QUEBRANDO OBJEÇÕES -->
+    <section class="py-24 md:py-32 px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-gold-400 text-xs tracking-[0.3em] uppercase block mb-4 reveal-text">Perguntas Frequentes</span>
+                <h2 class="font-display text-4xl md:text-5xl text-white tracking-tight reveal-text">Ainda tem <span class="text-gradient">dúvidas?</span></h2>
+                <div class="line-gold mx-auto mt-8 w-24"></div>
+            </div>
+
+            <div class="space-y-4">
+                <details class="glass-strong rounded-2xl group bento-reveal">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer text-white font-semibold text-base">
+                        Sou iniciante, nunca estudei a Bíblia. Serve pra mim?
+                        <svg class="w-5 h-5 text-gold-400 transition-transform group-open:rotate-45 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6v12m6-6H6"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">Serve sim! O manual foi feito especialmente para quem está começando. Tudo é explicado de forma simples e passo a passo, sem linguagem teológica complicada. Você vai entender desde a estrutura da Bíblia até como aplicar cada ensinamento na sua vida.</div>
+                </details>
+                <details class="glass-strong rounded-2xl group bento-reveal">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer text-white font-semibold text-base">
+                        Como eu recebo o material?
+                        <svg class="w-5 h-5 text-gold-400 transition-transform group-open:rotate-45 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6v12m6-6H6"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">Imediatamente após o pagamento, você recebe o acesso no seu e-mail. É tudo digital — pode acessar pelo celular, tablet ou computador, a qualquer hora e em qualquer lugar.</div>
+                </details>
+                <details class="glass-strong rounded-2xl group bento-reveal">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer text-white font-semibold text-base">
+                        E se eu não gostar?
+                        <svg class="w-5 h-5 text-gold-400 transition-transform group-open:rotate-45 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6v12m6-6H6"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">Você tem 7 dias de garantia incondicional. Se por qualquer motivo sentir que o manual não é pra você, basta solicitar o reembolso e devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</div>
+                </details>
+                <details class="glass-strong rounded-2xl group bento-reveal">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer text-white font-semibold text-base">
+                        R$ 29,90 é o preço final mesmo?
+                        <svg class="w-5 h-5 text-gold-400 transition-transform group-open:rotate-45 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6v12m6-6H6"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">Sim! Esse é o preço promocional de lançamento. O valor normal é R$ 197. Mas atenção: esse preço pode mudar a qualquer momento. Aproveite enquanto está disponível.</div>
+                </details>
+                <details class="glass-strong rounded-2xl group bento-reveal">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer text-white font-semibold text-base">
+                        Posso usar no grupo de estudos da minha igreja?
+                        <svg class="w-5 h-5 text-gold-400 transition-transform group-open:rotate-45 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6v12m6-6H6"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">Com certeza! Vários líderes de célula e grupos de estudo já usam o manual como referência. A didática é simples e clara, perfeita para usar em grupo.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+    <section id="depoimentos" class="py-24 md:py-32 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="text-gold-400 text-xs tracking-[0.3em] uppercase block mb-4 reveal-text">Prova Social</span>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-white tracking-tight reveal-text">O que dizem nossos <span class="text-gradient">leitores</span></h2>
+                <div class="line-gold mx-auto mt-8 w-24"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass rounded-2xl p-8 bento-reveal">
+                    <div class="flex items-center gap-1 mb-5">
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6 text-sm">"Sempre quis estudar a Bíblia de forma organizada, mas nunca sabia por onde começar. O Manual Prático da Bíblia me deu exatamente isso — clareza, método e inspiração. Meu devocional nunca foi o mesmo."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400/30 to-gold-600/30 flex items-center justify-center text-sm font-bold text-gold-400">M</div>
+                        <div>
+                            <p class="text-white text-sm font-semibold">Mariana S.</p>
+                            <p class="text-gray-500 text-xs">Professora, São Paulo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass rounded-2xl p-8 bento-reveal">
+                    <div class="flex items-center gap-1 mb-5">
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6 text-sm">"Com a rotina corrida, eu achava impossível ter um estudo bíblico consistente. Os métodos práticos do Manual se encaixaram perfeitamente no meu dia. Agora estudo a Bíblia com propósito e profundidade."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400/30 to-gold-600/30 flex items-center justify-center text-sm font-bold text-gold-400">R</div>
+                        <div>
+                            <p class="text-white text-sm font-semibold">Rafael O.</p>
+                            <p class="text-gray-500 text-xs">Engenheiro, Belo Horizonte</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card glass rounded-2xl p-8 bento-reveal">
+                    <div class="flex items-center gap-1 mb-5">
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6 text-sm">"Eu lia a Bíblia há anos mas sentia que não entendia de verdade. Este manual abriu meus olhos para camadas de significado que eu nunca tinha percebido. Minha fé se fortaleceu de uma forma incrível."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400/30 to-gold-600/30 flex items-center justify-center text-sm font-bold text-gold-400">C</div>
+                        <div>
+                            <p class="text-white text-sm font-semibold">Camila T.</p>
+                            <p class="text-gray-500 text-xs">Enfermeira, Curitiba</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card glass rounded-2xl p-8 bento-reveal">
+                    <div class="flex items-center gap-1 mb-5">
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6 text-sm">"Lidero um grupo de estudos na minha igreja e este manual se tornou nossa referência principal. A didática é impecável — explica de forma simples sem perder a profundidade. Todos amaram."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400/30 to-gold-600/30 flex items-center justify-center text-sm font-bold text-gold-400">L</div>
+                        <div>
+                            <p class="text-white text-sm font-semibold">Lucas F.</p>
+                            <p class="text-gray-500 text-xs">Líder de célula, Recife</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card glass rounded-2xl p-8 bento-reveal">
+                    <div class="flex items-center gap-1 mb-5">
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6 text-sm">"Sou nova na fé e estava completamente perdida em relação à Bíblia. Este manual me deu um mapa — agora sei por onde começar, como estudar e, mais importante, como viver o que aprendo."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400/30 to-gold-600/30 flex items-center justify-center text-sm font-bold text-gold-400">A</div>
+                        <div>
+                            <p class="text-white text-sm font-semibold">Ana P.</p>
+                            <p class="text-gray-500 text-xs">Estudante, Fortaleza</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card glass rounded-2xl p-8 bento-reveal">
+                    <div class="flex items-center gap-1 mb-5">
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6 text-sm">"A garantia de 7 dias me deu segurança para testar. Não precisei usar — o Manual Prático da Bíblia é excepcional. Já indiquei para toda minha família. O melhor investimento espiritual que fiz."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400/30 to-gold-600/30 flex items-center justify-center text-sm font-bold text-gold-400">D</div>
+                        <div>
+                            <p class="text-white text-sm font-semibold">Diego M.</p>
+                            <p class="text-gray-500 text-xs">Pastor, Manaus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section id="cta" class="py-24 md:py-32 px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <!-- TROQUE pelo caminho da sua imagem real, ex: src="images/cta-bg.png" -->
+            <div class="w-full h-full bg-gradient-to-br from-gold-700/10 via-dark-800 to-dark-900 opacity-20" id="ctaBg"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-900/95 to-dark-900"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <div class="glass-strong rounded-3xl p-10 md:p-16">
+                <span class="text-gold-400 text-xs tracking-[0.3em] uppercase block mb-4 reveal-text">Última chance</span>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-white tracking-tight mb-4 leading-tight reveal-text">
+                    Não deixe pra <span class="text-gradient">depois</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-xl mx-auto mb-6 leading-relaxed reveal-text">
+                    Cada dia sem um método de estudo é um dia que você perde a oportunidade de se aproximar mais de Deus. Comece agora e veja a diferença em 7 dias.
+                </p>
+
+                <!-- Stacked value -->
+                <div class="glass rounded-2xl p-6 max-w-sm mx-auto mb-8 reveal-text">
+                    <div class="space-y-2 text-sm text-left mb-4">
+                        <div class="flex justify-between text-gray-400"><span>Manual Prático da Bíblia</span><span class="line-through">R$ 97</span></div>
+                        <div class="flex justify-between text-green-400/80"><span>🎁 Devocional 21 Dias (GRÁTIS)</span><span class="line-through text-gray-500">R$ 67</span></div>
+                        <div class="border-t border-white/10 pt-2 flex justify-between text-gray-500"><span>Total:</span><span class="line-through">R$ 164</span></div>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-xs text-gold-400 uppercase tracking-wider mb-1">Você paga apenas</p>
+                        <span class="text-5xl md:text-6xl font-display text-gradient font-bold">R$ 29,90</span>
+                        <p class="text-sm text-gray-500 mt-2">ou 12x de R$ 2,99 sem juros</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4 reveal-text">
+                    <a href="https://pay.hotmart.com/Q103404071A" target="_blank" rel="noopener noreferrer" class="btn-gold btn-pulse px-12 py-5 rounded-full text-lg tracking-wider uppercase inline-block w-full sm:w-auto">
+                        GARANTIR MEU ACESSO AGORA
+                    </a>
+                    <div class="flex items-center justify-center gap-2 text-sm text-gray-500">
+                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                        Pagamento 100% seguro · Acesso imediato · Garantia de 7 dias
+                    </div>
+                </div>
+
+                <div class="mt-10 pt-8 border-t border-white/5 grid grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="font-display text-2xl text-white mb-1">+12K</div>
+                        <div class="text-xs text-gray-500 tracking-wide">Leitores</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-display text-2xl text-white mb-1">4.9</div>
+                        <div class="text-xs text-gray-500 tracking-wide">Avaliação</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-display text-2xl text-white mb-1">7 dias</div>
+                        <div class="text-xs text-gray-500 tracking-wide">Garantia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POP-UP CAPTURA DE LEADS -->
+    <div class="popup-overlay" id="leadPopup">
+        <div class="popup-box">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-green-400/10 flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-7 h-7 text-green-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+                </div>
+                <h3 class="font-display text-2xl text-white mb-2">7 Dias Para Caminhar<br>Com <span class="text-gradient">Deus</span></h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Baixe grátis os <strong class="text-white">7 primeiros dias do Devocional Premium</strong> — com oração direcionada, meditação e exercícios práticos para transformar sua fé.</p>
+            </div>
+            <div class="space-y-3">
+                <input type="text" class="popup-input" placeholder="Seu nome" id="leadName">
+                <input type="email" class="popup-input" placeholder="Seu melhor e-mail" id="leadEmail">
+                <button onclick="submitLead()" class="btn-gold w-full py-4 rounded-xl text-sm tracking-wider uppercase">
+                    QUERO MEUS 7 DIAS GRÁTIS
+                </button>
+                <p class="text-center text-xs text-gray-600">100% gratuito. Sem spam, só conteúdo que transforma.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/5511977737283?text=Ol%C3%A1!%20Vim%20pelo%20site%20Atlas%20da%20F%C3%A9%20e%20quero%20saber%20mais%20sobre%20o%20manual." target="_blank" rel="noopener noreferrer" class="whatsapp-float" id="whatsFloat">
+        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- FLOATING CTA MOBILE -->
+    <div class="floating-cta" id="floatingCta">
+        <a href="https://pay.hotmart.com/Q103404071A" target="_blank" rel="noopener noreferrer" class="btn-gold btn-pulse block text-center py-4 rounded-full text-sm tracking-wider uppercase w-full">
+            QUERO MEU MANUAL — R$ 29,90
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 py-12 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <a href="#" class="flex items-center gap-2">
+                    <div class="w-7 h-7 border border-gold-500/30 rounded-sm flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <span class="font-display text-lg tracking-wide text-white">Atlas <span class="text-gold-400">da Fé</span></span>
+                </a>
+
+                <!-- REDES SOCIAIS -->
+                <div class="flex items-center gap-5">
+                    <a href="https://www.instagram.com/atlasdafe" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gold-400 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@atlasdafe" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gold-400 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48v-7.1a8.16 8.16 0 005.58 2.17V11.3a4.85 4.85 0 01-3-.61v6.62"/></svg>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-8">
+                    <a href="#" class="text-xs text-gray-500 hover:text-gray-300 transition-colors tracking-wide">Termos de Uso</a>
+                    <a href="#" class="text-xs text-gray-500 hover:text-gray-300 transition-colors tracking-wide">Política de Privacidade</a>
+                    <a href="mailto:contato@atlasdafe.com.br" class="text-xs text-gray-500 hover:text-gray-300 transition-colors tracking-wide">contato@atlasdafe.com.br</a>
+                </div>
+
+                <p class="text-xs text-gray-600 tracking-wide">© 2026 Atlas da Fé. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        var menuToggle = document.getElementById('menuToggle');
+        var menuCloseBtn = document.getElementById('menuClose');
+        var mobileMenu = document.getElementById('mobileMenu');
+        var mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('open');
+        });
+
+        menuCloseBtn.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+        });
+
+        mobileLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                setTimeout(function() {
+                    mobileMenu.classList.remove('open');
+                }, 100);
+            });
+        });
+
+        var header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 80) {
+                header.classList.add('glass-strong');
+                header.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+            } else {
+                header.classList.remove('glass-strong');
+                header.style.borderBottom = 'none';
+            }
+        });
+
+        var heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        heroTl
+            .to('#heroBg', { scale: 1, duration: 1.5, ease: 'power2.out' })
+            .to('#heroBadge', { opacity: 1, y: 0, duration: 0.8 }, '-=1')
+            .to('#heroTitle span span', { y: 0, duration: 1, stagger: 0.15, ease: 'power3.out' }, '-=0.6')
+            .to('#heroSub', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
+            .to('#heroCTA', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
+            .to('#scrollInd', { opacity: 1, duration: 0.6 }, '-=0.3');
+
+        gsap.utils.toArray('.reveal-text').forEach(function(el) {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+                y: 40, opacity: 0, duration: 0.8, ease: 'power3.out'
+            });
+        });
+
+        gsap.utils.toArray('.bento-reveal').forEach(function(el, index) {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+                y: 60, opacity: 0, duration: 0.8, delay: index * 0.08, ease: 'power3.out'
+            });
+        });
+
+        gsap.utils.toArray('.reveal-image').forEach(function(el) {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+                x: -60, opacity: 0, duration: 1, ease: 'power3.out'
+            });
+        });
+
+        gsap.to('#heroBg', {
+            scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true },
+            y: 150, ease: 'none'
+        });
+
+        gsap.to('#ctaBg', {
+            scrollTrigger: { trigger: '#cta', start: 'top bottom', end: 'bottom top', scrub: true },
+            y: -50, ease: 'none'
+        });
+
+        // COUNTDOWN TIMER (reseta a cada sessão, simula urgência)
+        (function() {
+            var stored = sessionStorage.getItem('atlasCd');
+            var total = stored ? parseInt(stored) : 5*3600 + 47*60 + 33;
+            function pad(n) { return n < 10 ? '0' + n : n; }
+            function update() {
+                if (total <= 0) total = 0;
+                var h = Math.floor(total / 3600);
+                var m = Math.floor((total % 3600) / 60);
+                var s = total % 60;
+                document.getElementById('countHours').textContent = pad(h);
+                document.getElementById('countMinutes').textContent = pad(m);
+                document.getElementById('countSeconds').textContent = pad(s);
+                sessionStorage.setItem('atlasCd', total);
+                total--;
+            }
+            update();
+            setInterval(update, 1000);
+        })();
+
+        // Show countdown and trust badges after hero animation
+        setTimeout(function() {
+            document.getElementById('heroCountdown').style.opacity = '1';
+            document.getElementById('heroCountdown').style.transition = 'opacity 0.8s';
+            document.getElementById('heroTrust').style.opacity = '1';
+            document.getElementById('heroTrust').style.transition = 'opacity 0.8s';
+        }, 2500);
+
+        // EXIT INTENT POPUP
+        var popupShown = false;
+        function showPopup() {
+            if (popupShown) return;
+            popupShown = true;
+            document.getElementById('leadPopup').classList.add('active');
+            sessionStorage.setItem('atlasPopup', '1');
+        }
+        function closePopup() {
+            document.getElementById('leadPopup').classList.remove('active');
+        }
+        // Desktop: mouse leaves viewport
+        document.addEventListener('mouseout', function(e) {
+            if (e.clientY < 5 && !sessionStorage.getItem('atlasPopup')) showPopup();
+        });
+        // Mobile: after 45 seconds on page
+        if (window.innerWidth < 768) {
+            setTimeout(function() {
+                if (!sessionStorage.getItem('atlasPopup')) showPopup();
+            }, 45000);
+        }
+        // Close on overlay click
+        document.getElementById('leadPopup').addEventListener('click', function(e) {
+            if (e.target === this) closePopup();
+        });
+
+        // LEAD FORM SUBMIT — redireciona pro PDF dos 7 dias no Google Drive
+        function submitLead() {
+            var name = document.getElementById('leadName').value;
+            var email = document.getElementById('leadEmail').value;
+            if (!email || !email.includes('@')) {
+                document.getElementById('leadEmail').style.borderColor = '#ef4444';
+                document.getElementById('leadEmail').classList.add('shake');
+                setTimeout(function(){ document.getElementById('leadEmail').classList.remove('shake'); }, 400);
+                return;
+            }
+            // Fecha o popup e abre o PDF dos 7 dias
+            closePopup();
+            // Abre o PDF no Google Drive
+            window.open('https://drive.google.com/file/d/16Hi0czugXI3mDf4IdZxFkohNiGv5HRpx/view?usp=sharing', '_blank');
+            // Mostra mensagem e oferece o manual completo
+            setTimeout(function() {
+                alert('Pronto, ' + (name || 'amigo(a)') + '! Seu devocional de 7 dias está abrindo.\n\nGostou? O Manual Prático da Bíblia vem com o Devocional COMPLETO de 21 dias como bônus grátis!');
+            }, 500);
+        }
+
+        // FLOATING CTA - show after scrolling past hero
+        var floatingCta = document.getElementById('floatingCta');
+        if (floatingCta) {
+            window.addEventListener('scroll', function() {
+                if (window.innerWidth <= 640) {
+                    floatingCta.style.display = window.pageYOffset > window.innerHeight ? 'block' : 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
