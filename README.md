@@ -165,7 +165,7 @@ Após o push, a Vercel faz o build e publica automaticamente em `atlasdafe.com.b
 - [x] ~~Números inconsistentes~~ — **concluído** (+12K → +12.500; 4.9 → 4.8; reviewCount atualizado)
 
 ### Baixa prioridade
-- [ ] Substituir SVG placeholder do produto e do fundador por imagens reais *(requer assets do usuário)*
+- [x] ~~Substituir SVG placeholder do produto e do fundador~~ — **concluído** (`images/produto.png` e `images/criador.jpg`)
 - [x] ~~Mover arquivos `.md` de documentação para fora da raiz pública~~ — **concluído** (`.vercelignore` criado)
 - [x] ~~`window.pageYOffset` depreciado~~ — **concluído** (sessão 2 — substituído por `window.scrollY`)
 - [x] ~~Countdown sem efeito real ao zerar~~ — **concluído** (reseta automaticamente para +24h)
