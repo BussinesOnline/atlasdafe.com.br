@@ -3,7 +3,16 @@
   "outputDirectory": "./",
   "headers": [
     {
-      "source": "/index.html",
+      "source": "/(index|obrigado|politica-de-privacidade|termos-de-uso).html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(politica-de-privacidade|termos-de-uso|obrigado)",
       "headers": [
         {
           "key": "Cache-Control",
