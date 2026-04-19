@@ -109,6 +109,16 @@ Após o push, a Vercel faz o build e publica automaticamente em `atlasdafe.com.b
 - Botão de submit do popup com estado de loading ("Enviando…") e feedback inline (sem `alert()`)
 - Validação de e-mail com regex e validação de nome adicionada
 
+### 19/04/2026 — Sessão 4: Média prioridade (SEO, segurança, consistência)
+
+- **FAQPage Schema JSON-LD** adicionado — habilita rich snippets (caixas FAQ expandidas no Google)
+- **Sitemap.xml** reescrito — âncoras removidas, namespace mobile depreciado removido, páginas legais adicionadas
+- **SRI (Subresource Integrity)** adicionado nos scripts GSAP e ScrollTrigger com hashes sha384
+- **Content-Security-Policy** adicionado no vercel.json — limita fontes de scripts, estilos e imagens
+- **Permissions-Policy** adicionado no vercel.json — bloqueia câmera, microfone, geolocalização e USB
+- **Números unificados**: "+12K" → "+12.500", "4.9" → "4.8", `reviewCount` corrigido para 12500
+- Header `X-XSS-Protection` removido (depreciado nos browsers modernos)
+
 ### 19/04/2026 — Sessão 3: Performance — Tailwind build local
 
 - **Tailwind CDN removido de todos os HTMLs** — substituído por `styles.css` gerado via Tailwind CLI
@@ -139,12 +149,12 @@ Após o push, a Vercel faz o build e publica automaticamente em `atlasdafe.com.b
 - [x] ~~Migrar Tailwind CDN para build local~~ — **concluído** (22KB gerado vs ~1MB do CDN)
 
 ### Média prioridade
-- [ ] Adicionar Schema JSON-LD do tipo `FAQPage` para rich snippets no Google
-- [ ] Remover URLs com âncoras (`#sobre`, `#depoimentos`) do sitemap.xml
-- [ ] Adicionar `integrity` (SRI) nos scripts externos (GSAP, Tailwind, fontes)
-- [ ] Adicionar `Content-Security-Policy` no vercel.json
-- [ ] Adicionar `Permissions-Policy` no vercel.json
-- [ ] Unificar os números exibidos no site (847, 12.500, +12K — inconsistentes entre si)
+- [x] ~~FAQPage Schema JSON-LD~~ — **concluído** (rich snippets no Google habilitados)
+- [x] ~~Sitemap com âncoras~~ — **concluído** (removidas; adicionadas páginas legais)
+- [x] ~~SRI nos scripts externos~~ — **concluído** (GSAP e ScrollTrigger com integrity sha384)
+- [x] ~~Content-Security-Policy~~ — **concluído** (adicionado no vercel.json)
+- [x] ~~Permissions-Policy~~ — **concluído** (câmera, microfone, geolocalização bloqueados)
+- [x] ~~Números inconsistentes~~ — **concluído** (+12K → +12.500; 4.9 → 4.8; reviewCount atualizado)
 
 ### Baixa prioridade
 - [ ] Substituir SVG placeholder do produto e do fundador por imagens reais
