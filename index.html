@@ -28,19 +28,20 @@
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5.1.0/index.min.css" as="style">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource/plus-jakarta-sans@8.0.2/index.min.css" as="style">
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code — inicializado apenas após consentimento de cookies (LGPD) -->
     <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1635893094267391');
-    fbq('track', 'PageView');
+    function initMetaPixel() {
+        if (window.fbq) return;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1635893094267391');
+        fbq('track', 'PageView');
+    }
+    if (localStorage.getItem('atlasCookieConsent') === 'accepted') { initMetaPixel(); }
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1635893094267391&ev=PageView&noscript=1"
-    /></noscript>
     <!-- End Meta Pixel Code -->
 
     <!-- Schema.org Structured Data -->
@@ -169,6 +170,15 @@
         @media (max-width: 640px) { .whatsapp-float { bottom: 100px; } }
         @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
         .shake { animation: shake 0.4s ease; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+        #cookieBanner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: #111; border-top: 1px solid rgba(201,168,76,0.2); padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(100%); transition: transform 0.4s ease; }
+        #cookieBanner.show { transform: translateY(0); }
+        #cookieBanner p { font-size: 0.8rem; color: #9ca3af; max-width: 600px; line-height: 1.5; }
+        #cookieBanner a { color: #D4B96A; text-decoration: underline; }
+        .cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
+        .cookie-btn-accept { background: linear-gradient(135deg, #C9A84C, #D4B96A); color: #050505; font-weight: 700; font-size: 0.78rem; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; letter-spacing: 0.05em; }
+        .cookie-btn-reject { background: transparent; color: #6b7280; font-size: 0.78rem; padding: 10px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; }
+        .cookie-btn-reject:hover { color: #d1d5db; border-color: rgba(255,255,255,0.2); }
     </style>
 </head>
 <body>
@@ -177,7 +187,7 @@
     <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500" role="banner" aria-label="Cabeçalho principal do site">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="#" class="flex items-center gap-2 group">
+                <a href="/" class="flex items-center gap-2 group" aria-label="Atlas da Fé — Página inicial">
                     <div class="w-8 h-8 border border-gold-500/50 rounded-sm flex items-center justify-center group-hover:border-gold-500 transition-colors duration-300">
                         <svg class="w-4 h-4 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
@@ -190,8 +200,8 @@
                 </nav>
                 <div class="flex items-center gap-4">
                     <a href="https://pay.hotmart.com/Q103404071A" target="_blank" rel="noopener noreferrer" class="btn-gold px-6 py-2.5 rounded-full text-sm tracking-wide uppercase hidden sm:inline-block">Quero Meu Manual</a>
-                    <button id="menuToggle" class="md:hidden text-white p-2">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3.75 9h16.5m-16.5 6.75h16.5"/></svg>
+                    <button id="menuToggle" class="md:hidden text-white p-2" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileMenu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.75 9h16.5m-16.5 6.75h16.5"/></svg>
                     </button>
                 </div>
             </div>
@@ -200,8 +210,8 @@
 
     <!-- MOBILE MENU -->
     <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-full h-full bg-dark-800/98 backdrop-blur-xl z-[60] flex flex-col items-center justify-center gap-8" role="navigation" aria-label="Menu móvel">
-        <button id="menuClose" class="absolute top-6 right-6 text-white p-2">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+        <button id="menuClose" class="absolute top-6 right-6 text-white p-2" aria-label="Fechar menu de navegação">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
         <a href="#diferenciais" class="mobile-link text-2xl font-display text-white hover:text-gold-400 transition-colors">Diferenciais</a>
         <a href="#sobre" class="mobile-link text-2xl font-display text-white hover:text-gold-400 transition-colors">Sobre</a>
@@ -209,8 +219,10 @@
         <a href="https://pay.hotmart.com/Q103404071A" target="_blank" rel="noopener noreferrer" class="btn-gold px-8 py-3 rounded-full text-lg tracking-wide uppercase mt-4">Quero Meu Manual</a>
     </div>
 
+    <main id="main-content">
+
     <!-- HERO -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" role="main" aria-label="Seção principal do hero com apresentação do produto">
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" role="region" aria-label="Apresentação do produto">
         <div class="absolute inset-0">
             <div class="w-full h-full bg-gradient-to-br from-dark-700 via-dark-800 to-dark-900 scale-110 flex items-center justify-center" id="heroBg">
                 <svg class="w-32 h-32 text-gold-400/10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
@@ -290,7 +302,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20">
                 <span class="text-gold-400 text-xs tracking-[0.3em] uppercase block mb-4 reveal-text">Por que este manual é diferente</span>
-                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-white tracking-tight reveal-text">Um guia feito para quem quer <br class="hidden md:block"><span class="text-gradient">viver a Palavra de verdade</span></h2>
+                <h2 id="diferenciais-title" class="font-display text-4xl md:text-5xl lg:text-6xl text-white tracking-tight reveal-text">Um guia feito para quem quer <br class="hidden md:block"><span class="text-gradient">viver a Palavra de verdade</span></h2>
                 <div class="line-gold mx-auto mt-8 w-24"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -575,14 +587,16 @@
     <!-- POPUP LEAD -->
     <div class="popup-overlay" id="leadPopup">
         <div class="popup-box">
-            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <button class="popup-close" onclick="closePopup()" aria-label="Fechar popup">&times;</button>
             <div class="text-center mb-6">
                 <div class="w-14 h-14 rounded-2xl bg-green-400/10 flex items-center justify-center mx-auto mb-4"><svg class="w-7 h-7 text-green-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg></div>
                 <h3 class="font-display text-2xl text-white mb-2">7 Dias Para Caminhar<br>Com <span class="text-gradient">Deus</span></h3>
                 <p class="text-gray-400 text-sm leading-relaxed">Baixe grátis os <strong class="text-white">7 primeiros dias do Devocional Premium</strong> — com oração direcionada, meditação e exercícios práticos para transformar sua fé.</p>
             </div>
             <div class="space-y-3" id="leadForm">
+                <label for="leadName" class="sr-only">Seu nome</label>
                 <input type="text" class="popup-input" placeholder="Seu nome" id="leadName" autocomplete="given-name">
+                <label for="leadEmail" class="sr-only">Seu melhor e-mail</label>
                 <input type="email" class="popup-input" placeholder="Seu melhor e-mail" id="leadEmail" autocomplete="email">
                 <div id="leadFeedback" style="display:none;padding:10px 14px;border-radius:10px;font-size:0.8rem;text-align:center;"></div>
                 <button onclick="submitLead()" id="leadSubmitBtn" class="btn-gold w-full py-4 rounded-xl text-sm tracking-wider uppercase">QUERO MEUS 7 DIAS GRÁTIS</button>
@@ -607,13 +621,24 @@
     </div>
 
     <!-- WHATSAPP -->
-    <a href="https://wa.me/5511977737283?text=Ol%C3%A1!%20Vim%20pelo%20site%20Atlas%20da%20F%C3%A9%20e%20quero%20saber%20mais%20sobre%20o%20manual." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <a href="https://wa.me/5511977737283?text=Ol%C3%A1!%20Vim%20pelo%20site%20Atlas%20da%20F%C3%A9%20e%20quero%20saber%20mais%20sobre%20o%20manual." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Falar com a gente pelo WhatsApp">
         <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
     <!-- FLOATING CTA MOBILE -->
     <div class="floating-cta" id="floatingCta">
         <a href="https://pay.hotmart.com/Q103404071A" target="_blank" rel="noopener noreferrer" class="btn-gold btn-pulse block text-center py-4 rounded-full text-sm tracking-wider uppercase w-full">QUERO MEU MANUAL — R$ 29,90</a>
+    </div>
+
+    </main>
+
+    <!-- COOKIE CONSENT BANNER (LGPD) -->
+    <div id="cookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+        <p>Usamos cookies para melhorar sua experiência e exibir anúncios relevantes. Ao aceitar, você concorda com nossa <a href="/politica-de-privacidade">Política de Privacidade</a>.</p>
+        <div class="cookie-btns">
+            <button class="cookie-btn-reject" onclick="cookieChoice(false)">Apenas essenciais</button>
+            <button class="cookie-btn-accept" onclick="cookieChoice(true)">Aceitar cookies</button>
+        </div>
     </div>
 
     <!-- FOOTER -->
@@ -639,17 +664,40 @@
     </footer>
 
     <script>
+        // COOKIE CONSENT
+        function cookieChoice(accepted) {
+            localStorage.setItem('atlasCookieConsent', accepted ? 'accepted' : 'rejected');
+            document.getElementById('cookieBanner').classList.remove('show');
+            if (accepted) { initMetaPixel(); }
+        }
+        (function() {
+            var consent = localStorage.getItem('atlasCookieConsent');
+            if (!consent) {
+                setTimeout(function() { document.getElementById('cookieBanner').classList.add('show'); }, 1500);
+            }
+        })();
+
+        // GSAP — aguarda carregamento completo para evitar ReferenceError em conexões lentas
+        window.addEventListener('load', function() {
         gsap.registerPlugin(ScrollTrigger);
 
         // MENU
-        document.getElementById('menuToggle').addEventListener('click', function() { document.getElementById('mobileMenu').classList.add('open'); });
-        document.getElementById('menuClose').addEventListener('click', function() { document.getElementById('mobileMenu').classList.remove('open'); });
-        document.querySelectorAll('.mobile-link').forEach(function(l) { l.addEventListener('click', function() { setTimeout(function() { document.getElementById('mobileMenu').classList.remove('open'); }, 100); }); });
+        var menuToggle = document.getElementById('menuToggle');
+        var mobileMenu = document.getElementById('mobileMenu');
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        });
+        document.getElementById('menuClose').addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        });
+        document.querySelectorAll('.mobile-link').forEach(function(l) { l.addEventListener('click', function() { setTimeout(function() { mobileMenu.classList.remove('open'); menuToggle.setAttribute('aria-expanded', 'false'); }, 100); }); });
 
         // HEADER SCROLL
         window.addEventListener('scroll', function() {
             var h = document.getElementById('header');
-            if (window.pageYOffset > 80) { h.classList.add('glass-strong'); h.style.borderBottom = '1px solid rgba(255,255,255,0.05)'; }
+            if (window.scrollY > 80) { h.classList.add('glass-strong'); h.style.borderBottom = '1px solid rgba(255,255,255,0.05)'; }
             else { h.classList.remove('glass-strong'); h.style.borderBottom = 'none'; }
         });
 
@@ -778,9 +826,11 @@
         var floatingCta = document.getElementById('floatingCta');
         if (floatingCta) {
             window.addEventListener('scroll', function() {
-                if (window.innerWidth <= 640) { floatingCta.style.display = window.pageYOffset > window.innerHeight ? 'block' : 'none'; }
+                if (window.innerWidth <= 640) { floatingCta.style.display = window.scrollY > window.innerHeight ? 'block' : 'none'; }
             });
         }
+
+        }); // end window.addEventListener('load')
     </script>
 </body>
 </html>
