@@ -1,6 +1,11 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "./",
+  "rewrites": [
+    { "source": "/obrigado", "destination": "/obrigado.html" },
+    { "source": "/politica-de-privacidade", "destination": "/politica-de-privacidade.html" },
+    { "source": "/termos-de-uso", "destination": "/termos-de-uso.html" }
+  ],
   "headers": [
     {
       "source": "/(index|obrigado|politica-de-privacidade|termos-de-uso).html",
