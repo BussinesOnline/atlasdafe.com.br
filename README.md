@@ -109,6 +109,16 @@ Após o push, a Vercel faz o build e publica automaticamente em `atlasdafe.com.b
 - Botão de submit do popup com estado de loading ("Enviando…") e feedback inline (sem `alert()`)
 - Validação de e-mail com regex e validação de nome adicionada
 
+### 19/04/2026 — Sessão 3: Performance — Tailwind build local
+
+- **Tailwind CDN removido de todos os HTMLs** — substituído por `styles.css` gerado via Tailwind CLI
+- CSS reduzido de ~1MB (CDN de desenvolvimento) para **22KB** (apenas classes usadas, minificado)
+- `package.json` criado com script `build` e `dev`
+- `tailwind.config.js` criado com cores e fontes customizadas do projeto
+- `vercel.json` atualizado: `buildCommand` agora roda `npm run build` de verdade
+- `.gitignore` criado para excluir `node_modules/`
+- Para desenvolver localmente: `npm run dev` (modo watch)
+
 ### 19/04/2026 — Sessão 2: Alta prioridade (acessibilidade, LGPD, JS)
 
 - **Banner de consentimento de cookies** — Meta Pixel só dispara após o usuário aceitar (conformidade LGPD)
@@ -126,7 +136,7 @@ Após o push, a Vercel faz o build e publica automaticamente em `atlasdafe.com.b
 ## Melhorias pendentes (próximas sprints)
 
 ### Alta prioridade
-- [ ] Migrar Tailwind CDN para build local (maior ganho de performance — reduz ~1MB de CSS)
+- [x] ~~Migrar Tailwind CDN para build local~~ — **concluído** (22KB gerado vs ~1MB do CDN)
 
 ### Média prioridade
 - [ ] Adicionar Schema JSON-LD do tipo `FAQPage` para rich snippets no Google

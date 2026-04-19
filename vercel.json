@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build || echo 'No build command'",
+  "buildCommand": "npm run build",
   "outputDirectory": "./",
   "headers": [
     {
