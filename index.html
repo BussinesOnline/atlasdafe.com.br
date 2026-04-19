@@ -772,12 +772,18 @@
             document.getElementById('heroTrust').style.transition = 'opacity 0.8s';
         }, 2500);
 
-        // LEAD POPUP (mobile: 45s)
+        // LEAD POPUP (mobile: 20s | desktop: scroll 40%)
         var leadShown = false;
+        function openLeadPopup() { if (!localStorage.getItem('atlasLead') && !leadShown) { leadShown = true; document.getElementById('leadPopup').classList.add('active'); } }
         function closePopup() { document.getElementById('leadPopup').classList.remove('active'); }
         document.getElementById('leadPopup').addEventListener('click', function(e) { if (e.target === this) closePopup(); });
         if (window.innerWidth < 768) {
-            setTimeout(function() { if (!localStorage.getItem('atlasLead') && !leadShown) { leadShown = true; document.getElementById('leadPopup').classList.add('active'); } }, 45000);
+            setTimeout(openLeadPopup, 20000);
+        } else {
+            window.addEventListener('scroll', function onScrollLead() {
+                var scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+                if (scrolled > 0.40) { openLeadPopup(); window.removeEventListener('scroll', onScrollLead); }
+            });
         }
 
         // EXIT INTENT POPUP
