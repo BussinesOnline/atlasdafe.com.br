@@ -109,6 +109,14 @@ Após o push, a Vercel faz o build e publica automaticamente em `atlasdafe.com.b
 - Botão de submit do popup com estado de loading ("Enviando…") e feedback inline (sem `alert()`)
 - Validação de e-mail com regex e validação de nome adicionada
 
+### 19/04/2026 — Sessão 5: Baixa prioridade (polish e conformidade)
+
+- **`.vercelignore`** criado — SEO-CHECKLIST.md, VERCEL-OPTIMIZATION.md e `src/` excluídos do deploy público
+- **Marquee** — `prefers-reduced-motion` adicionado: animação pausa automaticamente para usuários com sensibilidade a movimento (WCAG 2.2.2)
+- **Countdown** — ao chegar a zero, reinicia automaticamente para +24h (evita estado quebrado)
+- **Copyright dinâmico** — `new Date().getFullYear()` em `index.html` e `obrigado.html`; nunca ficará desatualizado
+- **README** — `window.pageYOffset` marcado como corrigido (foi feito na sessão 2)
+
 ### 19/04/2026 — Sessão 4: Média prioridade (SEO, segurança, consistência)
 
 - **FAQPage Schema JSON-LD** adicionado — habilita rich snippets (caixas FAQ expandidas no Google)
@@ -157,12 +165,12 @@ Após o push, a Vercel faz o build e publica automaticamente em `atlasdafe.com.b
 - [x] ~~Números inconsistentes~~ — **concluído** (+12K → +12.500; 4.9 → 4.8; reviewCount atualizado)
 
 ### Baixa prioridade
-- [ ] Substituir SVG placeholder do produto e do fundador por imagens reais
-- [ ] Mover arquivos `.md` de documentação para fora da raiz pública (criar `.vercelignore`)
-- [ ] Substituir `window.pageYOffset` por `window.scrollY` (depreciado)
-- [ ] Adicionar efeito real quando o countdown de urgência chegar a zero
-- [ ] Adicionar controle de pausa na animação marquee (WCAG 2.2.2)
-- [ ] Automatizar o copyright para não ficar desatualizado (`new Date().getFullYear()`)
+- [ ] Substituir SVG placeholder do produto e do fundador por imagens reais *(requer assets do usuário)*
+- [x] ~~Mover arquivos `.md` de documentação para fora da raiz pública~~ — **concluído** (`.vercelignore` criado)
+- [x] ~~`window.pageYOffset` depreciado~~ — **concluído** (sessão 2 — substituído por `window.scrollY`)
+- [x] ~~Countdown sem efeito real ao zerar~~ — **concluído** (reseta automaticamente para +24h)
+- [x] ~~Marquee sem controle de pausa~~ — **concluído** (`prefers-reduced-motion` para quem tem sensibilidade a movimento)
+- [x] ~~Copyright hardcoded~~ — **concluído** (`new Date().getFullYear()` no index.html e obrigado.html)
 
 ---
 
