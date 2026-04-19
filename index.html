@@ -703,6 +703,50 @@
             }
         })();
 
+        // FUNÇÕES GLOBAIS (chamadas por onclick no HTML)
+        var leadShown = false;
+        var exitShown = false;
+        function closePopup() { document.getElementById('leadPopup').classList.remove('active'); }
+        function closeExitPopup() { document.getElementById('exitPopup').classList.remove('active'); }
+        function openLeadPopup() { if (!localStorage.getItem('atlasLead') && !leadShown) { leadShown = true; document.getElementById('leadPopup').classList.add('active'); } }
+        function submitLead() {
+            var name = document.getElementById('leadName').value.trim();
+            var email = document.getElementById('leadEmail').value.trim();
+            var btn = document.getElementById('leadSubmitBtn');
+            var feedback = document.getElementById('leadFeedback');
+            var emailValid = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            if (!name) { document.getElementById('leadName').style.borderColor = '#ef4444'; document.getElementById('leadName').focus(); return; }
+            if (!emailValid) { document.getElementById('leadEmail').style.borderColor = '#ef4444'; document.getElementById('leadEmail').classList.add('shake'); setTimeout(function() { document.getElementById('leadEmail').classList.remove('shake'); }, 400); return; }
+            document.getElementById('leadName').style.borderColor = '';
+            document.getElementById('leadEmail').style.borderColor = '';
+            btn.disabled = true;
+            btn.textContent = 'Enviando…';
+            feedback.style.display = 'none';
+            fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: name, email: email }) })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    localStorage.setItem('atlasLead', '1');
+                    feedback.style.display = 'block';
+                    feedback.style.background = 'rgba(34,197,94,0.1)';
+                    feedback.style.border = '1px solid rgba(34,197,94,0.3)';
+                    feedback.style.color = '#86efac';
+                    feedback.textContent = '✓ Cadastrado! Seu devocional está abrindo…';
+                    btn.textContent = 'ENVIADO!';
+                    setTimeout(function() { window.open('https://drive.google.com/file/d/16Hi0czugXI3mDf4IdZxFkohNiGv5HRpx/view?usp=sharing', '_blank'); closePopup(); }, 1200);
+                } else { throw new Error(data.error || 'Erro desconhecido'); }
+            })
+            .catch(function(err) {
+                feedback.style.display = 'block';
+                feedback.style.background = 'rgba(239,68,68,0.1)';
+                feedback.style.border = '1px solid rgba(239,68,68,0.3)';
+                feedback.style.color = '#fca5a5';
+                feedback.textContent = err.message || 'Erro ao cadastrar. Tente novamente.';
+                btn.disabled = false;
+                btn.textContent = 'QUERO MEUS 7 DIAS GRÁTIS';
+            });
+        }
+
         // GSAP — aguarda carregamento completo para evitar ReferenceError em conexões lentas
         window.addEventListener('load', function() {
         gsap.registerPlugin(ScrollTrigger);
@@ -773,9 +817,6 @@
         }, 2500);
 
         // LEAD POPUP (mobile: 20s | desktop: scroll 40%)
-        var leadShown = false;
-        function openLeadPopup() { if (!localStorage.getItem('atlasLead') && !leadShown) { leadShown = true; document.getElementById('leadPopup').classList.add('active'); } }
-        function closePopup() { document.getElementById('leadPopup').classList.remove('active'); }
         document.getElementById('leadPopup').addEventListener('click', function(e) { if (e.target === this) closePopup(); });
         if (window.innerWidth < 768) {
             setTimeout(openLeadPopup, 20000);
@@ -787,8 +828,6 @@
         }
 
         // EXIT INTENT POPUP
-        var exitShown = false;
-        function closeExitPopup() { document.getElementById('exitPopup').classList.remove('active'); }
         document.getElementById('exitPopup').addEventListener('click', function(e) { if (e.target === this) closeExitPopup(); });
         document.addEventListener('mouseout', function(e) {
             if (e.clientY < 5 && !exitShown && !localStorage.getItem('atlasExit')) {
@@ -797,67 +836,6 @@
                 document.getElementById('exitPopup').classList.add('active');
             }
         });
-
-        // LEAD SUBMIT
-        function submitLead() {
-            var name = document.getElementById('leadName').value.trim();
-            var email = document.getElementById('leadEmail').value.trim();
-            var btn = document.getElementById('leadSubmitBtn');
-            var feedback = document.getElementById('leadFeedback');
-
-            var emailValid = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-            if (!name) {
-                document.getElementById('leadName').style.borderColor = '#ef4444';
-                document.getElementById('leadName').focus();
-                return;
-            }
-            if (!emailValid) {
-                document.getElementById('leadEmail').style.borderColor = '#ef4444';
-                document.getElementById('leadEmail').classList.add('shake');
-                setTimeout(function() { document.getElementById('leadEmail').classList.remove('shake'); }, 400);
-                return;
-            }
-
-            document.getElementById('leadName').style.borderColor = '';
-            document.getElementById('leadEmail').style.borderColor = '';
-            btn.disabled = true;
-            btn.textContent = 'Enviando…';
-            feedback.style.display = 'none';
-
-            fetch('/api/subscribe', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name: name, email: email })
-            })
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-                if (data.success) {
-                    localStorage.setItem('atlasLead', '1');
-                    feedback.style.display = 'block';
-                    feedback.style.background = 'rgba(34,197,94,0.1)';
-                    feedback.style.border = '1px solid rgba(34,197,94,0.3)';
-                    feedback.style.color = '#86efac';
-                    feedback.textContent = '✓ Cadastrado! Seu devocional está abrindo…';
-                    btn.textContent = 'ENVIADO!';
-                    setTimeout(function() {
-                        window.open('https://drive.google.com/file/d/16Hi0czugXI3mDf4IdZxFkohNiGv5HRpx/view?usp=sharing', '_blank');
-                        closePopup();
-                    }, 1200);
-                } else {
-                    throw new Error(data.error || 'Erro desconhecido');
-                }
-            })
-            .catch(function(err) {
-                feedback.style.display = 'block';
-                feedback.style.background = 'rgba(239,68,68,0.1)';
-                feedback.style.border = '1px solid rgba(239,68,68,0.3)';
-                feedback.style.color = '#fca5a5';
-                feedback.textContent = err.message || 'Erro ao cadastrar. Tente novamente.';
-                btn.disabled = false;
-                btn.textContent = 'QUERO MEUS 7 DIAS GRÁTIS';
-            });
-        }
 
         // FLOATING CTA MOBILE
         var floatingCta = document.getElementById('floatingCta');
