@@ -63,10 +63,12 @@ Configure em **Vercel → Settings → Environment Variables**:
 
 ## Rastreamento de conversões (Meta Pixel)
 
-- **index.html**: dispara `PageView` ao carregar
+- **index.html**: dispara `PageView` e `Purchase` **apenas após consentimento de cookies** (LGPD)
 - **obrigado.html**: dispara `PageView` + `Purchase` (valor: R$ 29,90, moeda: BRL)
 
 O pixel ID é: `1635893094267391`
+
+> O Meta Pixel é inicializado via função `initMetaPixel()`, chamada somente quando o usuário aceita cookies no banner de consentimento. A escolha é armazenada em `localStorage` com a chave `atlasCookieConsent`.
 
 ---
 
@@ -95,22 +97,29 @@ Após o push, a Vercel faz o build e publica automaticamente em `atlasdafe.com.b
 
 ---
 
-## Correções e melhorias aplicadas (19/04/2026)
+## Histórico de correções
 
-### Bugs críticos corrigidos
+### 19/04/2026 — Sessão 1: Bugs críticos
 
 - **Meta Pixel ausente no obrigado.html** — evento `Purchase` adicionado para rastreamento de conversões no Facebook Ads
 - **Captura de leads não funcionava** — integrado com Brevo via serverless function; leads agora são salvos de verdade
 - **Política de Privacidade e Termos de Uso inexistentes** — páginas criadas em conformidade com LGPD e CDC
 - **logo.png referenciado no Schema.org mas arquivo inexistente** — arquivo criado, elimina erro 404 para o Google
 - **Links do footer apontavam para `href="#"`** — corrigidos para `/termos-de-uso`, `/politica-de-privacidade` e `/`
+- Botão de submit do popup com estado de loading ("Enviando…") e feedback inline (sem `alert()`)
+- Validação de e-mail com regex e validação de nome adicionada
 
-### Melhorias de UX
+### 19/04/2026 — Sessão 2: Alta prioridade (acessibilidade, LGPD, JS)
 
-- Botão de submit do popup agora mostra estado de loading ("Enviando…")
-- Feedback de sucesso/erro exibido inline no popup (sem `alert()` bloqueante)
-- Validação de e-mail melhorada (regex em vez de apenas verificar `@`)
-- Validação de nome adicionada ao formulário do popup
+- **Banner de consentimento de cookies** — Meta Pixel só dispara após o usuário aceitar (conformidade LGPD)
+- **Bug GSAP/defer** — todo código de animação movido para dentro de `window.addEventListener('load')`; elimina `ReferenceError` em conexões lentas
+- **`<main>` semântico** — tag `<main>` adicionada ao documento; `role="main"` removido da `<section>` incorreta
+- **`aria-labelledby` quebrado** — `id="diferenciais-title"` adicionado ao `<h2>` da seção de diferenciais
+- **Botões sem nome acessível** — `aria-label` adicionado ao hamburguer, fechar menu, fechar popup e link do WhatsApp
+- **`aria-expanded` no menu mobile** — atualizado dinamicamente ao abrir/fechar
+- **Labels nos inputs do popup** — `<label class="sr-only">` adicionado para leitores de tela
+- **`window.pageYOffset` depreciado** — substituído por `window.scrollY`
+- **Logo no header** — `href="#"` corrigido para `href="/"`
 
 ---
 
@@ -118,12 +127,6 @@ Após o push, a Vercel faz o build e publica automaticamente em `atlasdafe.com.b
 
 ### Alta prioridade
 - [ ] Migrar Tailwind CDN para build local (maior ganho de performance — reduz ~1MB de CSS)
-- [ ] Corrigir GSAP carregado com `defer` mas executado em script inline (pode quebrar em conexões lentas)
-- [ ] Adicionar `<label>` nos inputs do popup (acessibilidade)
-- [ ] Adicionar `aria-label` no botão de fechar popup, menu hamburguer e link do WhatsApp
-- [ ] Adicionar `<main>` e corrigir `role="main"` no `<section>` do hero
-- [ ] Corrigir `aria-labelledby="diferenciais-title"` que aponta para ID inexistente
-- [ ] Banner de consentimento de cookies (LGPD — Meta Pixel dispara sem consentimento)
 
 ### Média prioridade
 - [ ] Adicionar Schema JSON-LD do tipo `FAQPage` para rich snippets no Google
