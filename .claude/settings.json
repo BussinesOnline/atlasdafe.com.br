@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Read(//c/Users/richa/Downloads/**)",
+      "Bash(cp \"c:/Users/richa/Downloads/IMG_1196.JPEG\" \"c:/Users/richa/Documents/atlasdafe.com.br/images/criador.jpg\")",
+      "Bash(cp \"c:/Users/richa/Downloads/foto.png\" \"c:/Users/richa/Documents/atlasdafe.com.br/images/produto.png\")",
+      "Bash(npx vercel *)",
+      "Bash(curl -s -X POST https://atlasdafe.com.br/api/subscribe -H \"Content-Type: application/json\" -d \"{\\\\\"name\\\\\":\\\\\"Teste\\\\\",\\\\\"email\\\\\":\\\\\"teste@teste.com\\\\\"}\")",
+      "Bash(curl -s -L -X POST https://www.atlasdafe.com.br/api/subscribe -H \"Content-Type: application/json\" -d \"{\\\\\"name\\\\\":\\\\\"Teste\\\\\",\\\\\"email\\\\\":\\\\\"teste@teste.com\\\\\"}\")"
+    ]
+  }
+}
